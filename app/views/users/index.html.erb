@@ -1,0 +1,13 @@
+<h1>User list</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <% unless user.archived? %>
+      <li>
+        <%= link_to user.name, user %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create new user", new_user_path %>

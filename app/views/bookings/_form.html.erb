@@ -1,0 +1,7 @@
+<%= form_with model: @booking do |form| %>
+  <%= form.select :user_id, options_from_collection_for_select(@users, "id", "name")%>
+  <%= form.hidden_field :book_id, value: @book.id %>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

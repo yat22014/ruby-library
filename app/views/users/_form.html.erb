@@ -1,0 +1,34 @@
+<%= form_with model: user do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% user.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label :user_name %><br>
+      <%= form.text_field :user_name %>
+      <% user.errors.full_messages_for(:user_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :password %><br>
+      <%= form.password_field :password %><br>
+      <% user.errors.full_messages_for(:password).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+      <%= form.label :status %><br>
+      <%= form.select :status, UserVisible::VALID_STATUSES, selected: user.status || 'in_stock' %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+<% end %>

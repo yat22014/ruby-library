@@ -1,0 +1,19 @@
+<h1><%= @book.name %></h1>
+
+<p><%= @book.description %></p>
+
+Status: <%= @book.status %>
+
+<% if @book.status == 'in_stock' %>
+  <%= link_to "Borrow Book", new_booking_path(:id => @book.id) %>
+<% end %>
+
+<ul>
+  <li><%= link_to "Edit", edit_book_path(@book) %></li>
+  <li><%= link_to "Destroy", book_path(@book), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+</ul>
+
+<%= link_to "Back to book list", books_path %>

@@ -1,0 +1,11 @@
+<div class="text-xl">Return Book - <%= @book.name %></div>
+
+<%= form_with model: @booking do |form| %>
+    <div>
+        <%= form.hidden_field :due_date, value: DateTime.current() %>
+    </div>
+    <%= form.submit :Submit, class: "rounded bg-stone-300 p-4 cursor-pointer" %>
+<% end %>
+
+<%= link_to "Back to booking list", bookings_path %>
+

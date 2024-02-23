@@ -1,0 +1,13 @@
+<h1>Book list</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <% unless book.archived? %>
+      <li>
+        <%= link_to book.name, book %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Create new book", new_book_path %>

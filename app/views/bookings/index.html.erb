@@ -1,0 +1,32 @@
+<div class="text-xl">Bookings list</div>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Borrow Date</th>
+                <th>Return Date</th>
+                <th>Book Name</th>
+                <th>Borrower Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @bookings.each do |booking| %>
+            <tr>
+                <td><%= booking.out_date %></td>
+                <td><%= booking.due_date %></td>
+                <td><%= booking.book_id %></td>
+                <td><%= booking.user_id %></td>
+                <% if !booking.due_date.present? %>
+                    <td>
+                        <%= link_to edit_booking_path(booking) do %>
+                            <div class="rounded bg-stone-300 p-4 cursor-pointer">Return book</div>
+                        <% end %>
+                    </td>
+                <% end %>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

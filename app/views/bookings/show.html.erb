@@ -1,0 +1,8 @@
+<div class="text-5xl"><%= @book.name %></div>
+
+Borrower Name: <%= @user.name %><br />
+Borrow Date: <%= @booking.out_date %><br />
+Return Date: <%= @booking.due_date %><br />
+Current Book Status: <%= @book.status %><br />
+
+<%= link_to "Back to booking list", bookings_path %>
